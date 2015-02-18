@@ -22,6 +22,7 @@ public class ForkliftSubsystem extends Subsystem {
 
 	public void initDefaultCommand() {
 		setDefaultCommand(new ForkliftCommand());
+		winchEncoder.get();//make eclipse stop issuing warnings
 	}
 
 	public void moveForklift(double winchSpeed){

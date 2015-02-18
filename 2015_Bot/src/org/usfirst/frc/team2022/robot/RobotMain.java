@@ -1,11 +1,11 @@
 package org.usfirst.frc.team2022.robot;
 
+import org.usfirst.frc.team2022.robot.commands.AutonomousCommand;
 import org.usfirst.frc.team2022.robot.subsystems.ForkliftSubsystem;
 import org.usfirst.frc.team2022.robot.subsystems.PneumaticSubsystem;
 import org.usfirst.frc.team2022.robot.subsystems.TankDriveSubsystem;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
@@ -25,7 +25,7 @@ public class RobotMain extends IterativeRobot {
 			RobotMap.shiftValveChannel2, RobotMap.clawValveChannel1, RobotMap.clawValveChannel2);
 	public static OI oi;
 
-	Command autonomousCommand;
+	AutonomousCommand autonomousCommand;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -35,6 +35,7 @@ public class RobotMain extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		// instantiate the command used for the autonomous period
+		autonomousCommand = new AutonomousCommand();
 		// instantiate the real commands
 	}
 
@@ -46,8 +47,8 @@ public class RobotMain extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		// schedule the autonomous command (example)
-//		if (autonomousCommand != null)
-//			autonomousCommand.start();
+		if (autonomousCommand != null)
+			autonomousCommand.start();
 	}
 
 	/**
@@ -60,8 +61,8 @@ public class RobotMain extends IterativeRobot {
 
 	@Override
 	public void teleopInit() {
-//		if (autonomousCommand != null)
-//			autonomousCommand.cancel();
+		if (autonomousCommand != null)
+			autonomousCommand.cancel();
 	}
 
 	/**
