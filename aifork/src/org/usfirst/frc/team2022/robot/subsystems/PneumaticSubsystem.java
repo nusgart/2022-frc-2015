@@ -1,13 +1,10 @@
 package org.usfirst.frc.team2022.robot.subsystems;
 
-import org.usfirst.frc.team2022.robot.RobotMain;
 import org.usfirst.frc.team2022.robot.commands.CompressorCommand;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *

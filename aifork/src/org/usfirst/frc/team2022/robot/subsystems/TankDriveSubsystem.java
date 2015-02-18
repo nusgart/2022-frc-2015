@@ -1,17 +1,10 @@
 package org.usfirst.frc.team2022.robot.subsystems;
 
-import java.sql.Time;
-import java.util.Calendar;
-import java.util.Timer;
-
 import org.usfirst.frc.team2022.robot.RobotMap;
 import org.usfirst.frc.team2022.robot.commands.TankDriveCommand;
 
-import edu.wpi.first.wpilibj.CANJaguar;
-import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.hal.CanTalonSRX;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -38,7 +31,6 @@ public class TankDriveSubsystem extends Subsystem {
 	// this is important for WPILib.
 	public void initDefaultCommand() {
 		setDefaultCommand(new TankDriveCommand());
-
 	}
 
 	// Speed Manipulation Methods-these are more fine grained

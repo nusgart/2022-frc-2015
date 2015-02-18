@@ -1,9 +1,6 @@
 package org.usfirst.frc.team2022.robot;
 
-import org.usfirst.frc.team2022.robot.commands.ForkliftCommand;
-import org.usfirst.frc.team2022.robot.commands.TankDriveCommand;
 import org.usfirst.frc.team2022.robot.subsystems.ForkliftSubsystem;
-import org.usfirst.frc.team2022.robot.subsystems.GyroSubsystem;
 import org.usfirst.frc.team2022.robot.subsystems.PneumaticSubsystem;
 import org.usfirst.frc.team2022.robot.subsystems.TankDriveSubsystem;
 

@@ -13,43 +13,47 @@ public class CompressorCommand extends Command {
 
 	OI oi;
 	PneumaticSubsystem pneumaticSubsystem;
-	
-    public CompressorCommand() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	requires(RobotMain.pneumaticSubsystem);
-    }
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-    	
-    	oi = RobotMain.oi;
-    	
-    	pneumaticSubsystem = RobotMain.pneumaticSubsystem;
-    	pneumaticSubsystem.start();
-    	
-    }
+	public CompressorCommand() {
+		// Use requires() here to declare subsystem dependencies
+		// eg. requires(chassis);
+		requires(RobotMain.pneumaticSubsystem);
+	}
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	
-    	
-    	
-    }
+	// Called just before this Command runs the first time
+	protected void initialize() {
 
-    //Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return false;
-    }
+		oi = RobotMain.oi;
 
-    // Called once after isFinished returns true
-    protected void end() {
-    	pneumaticSubsystem.stop();
-    }
+		pneumaticSubsystem = RobotMain.pneumaticSubsystem;
+		pneumaticSubsystem.start();
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    	pneumaticSubsystem.stop();
-    }
+	}
+
+	// Called repeatedly when this Command is scheduled to run
+	protected void execute() {
+		if(oi.attack3.getButton(3) || oi.attack4.getButton(3)){
+			pneumaticSubsystem.toggleClawState();
+		}
+		//Shifter Stuff goes down here
+		if(oi.xbox.GetLeftBumperValue()){
+			pneumaticSubsystem.toggleShifterState();
+		}
+	}
+
+	//Make this return true when this Command no longer needs to run execute()
+	protected boolean isFinished() {
+		return false;
+	}
+
+	// Called once after isFinished returns true
+	protected void end() {
+		pneumaticSubsystem.stop();
+	}
+
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	protected void interrupted() {
+		pneumaticSubsystem.stop();
+	}
 }
